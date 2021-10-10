@@ -47,6 +47,7 @@ class CharactersListViewModel @Inject constructor(
      * Load Character List
      */
     fun load(offset: Int = 0) = viewModelScope.launch {
+        _charactersState.value = CharactersState.OnLoading
         findPaginatedCharactersOrderByNameDescInteract.execute(
             params = FindPaginatedCharactersOrderByNameDescInteract.Params(
                 offset, DEFAULT_PAGE_LIMIT
@@ -67,15 +68,18 @@ class CharactersListViewModel @Inject constructor(
     }
 
     companion object {
-
         private const val DEFAULT_PAGE_LIMIT = 20
         private const val DEFAULT_START_OFFSET = 0
-
     }
 
 }
 
 sealed class CharactersState {
+
+    /**
+     * On Loading
+     */
+    object OnLoading: CharactersState()
 
     /**
      * On Success

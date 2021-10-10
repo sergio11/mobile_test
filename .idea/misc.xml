@@ -10,6 +10,12 @@
         <entry key="..\:/Users/ssanchez/StudioProjects/android_marvel_clean_architecure-main/android_marvel_clean_architecure-main/app/src/main/res/drawable/splash_background_gradient_start.xml" value="0.1875" />
         <entry key="..\:/Users/ssanchez/StudioProjects/android_marvel_clean_architecure-main/android_marvel_clean_architecure-main/app/src/main/res/drawable/splash_stripe_gradient.xml" value="0.1875" />
         <entry key="..\:/Users/ssanchez/StudioProjects/android_marvel_clean_architecure-main/android_marvel_clean_architecure-main/app/src/main/res/layout/activity_splash_screen.xml" value="0.17119565217391305" />
+        <entry key="..\:/Users/ssanchez/StudioProjects/android_marvel_clean_architecure-main/android_marvel_clean_architecure-main/app/src/main/res/layout/character_detail.xml" value="0.17239583333333333" />
+        <entry key="..\:/Users/ssanchez/StudioProjects/android_marvel_clean_architecure-main/android_marvel_clean_architecure-main/app/src/main/res/layout/character_fragment_content_layout.xml" value="0.11367753623188406" />
+        <entry key="..\:/Users/ssanchez/StudioProjects/android_marvel_clean_architecure-main/android_marvel_clean_architecure-main/app/src/main/res/layout/character_fragment_error_layout.xml" value="0.11367753623188406" />
+        <entry key="..\:/Users/ssanchez/StudioProjects/android_marvel_clean_architecure-main/android_marvel_clean_architecure-main/app/src/main/res/layout/character_fragment_loading_layout.xml" value="0.14492753623188406" />
+        <entry key="..\:/Users/ssanchez/StudioProjects/android_marvel_clean_architecure-main/android_marvel_clean_architecure-main/app/src/main/res/layout/content_splash_screen.xml" value="0.11367753623188406" />
+        <entry key="..\:/Users/ssanchez/StudioProjects/android_marvel_clean_architecure-main/android_marvel_clean_architecure-main/app/src/main/res/layout/material_list_item_layout.xml" value="0.11367753623188406" />
         <entry key="..\:/Users/ssanchez/StudioProjects/android_marvel_clean_architecure-main/android_marvel_clean_architecure-main/app/src/main/res/layout/splash_fragment_layout.xml" value="0.15760869565217392" />
       </map>
     </option>

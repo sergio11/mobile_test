@@ -167,6 +167,7 @@ class CharacterNetworkRepositoryUTest {
         @BeforeClass
         @Throws
         fun setup() {
+            System.setProperty("javax.net.ssl.trustStoreType", "JKS")
             // Initialize mock webserver
             mockServer = MockWebServer().also {
                 // Start the local server

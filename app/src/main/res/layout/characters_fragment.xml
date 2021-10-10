@@ -32,10 +32,12 @@
 
                 <include
                     android:id="@+id/errorView"
+                    android:visibility="gone"
                     layout="@layout/character_fragment_error_layout"/>
 
                 <include
                     android:id="@+id/loadingView"
+                    android:visibility="gone"
                     layout="@layout/character_fragment_loading_layout"/>
 
             </LinearLayout>

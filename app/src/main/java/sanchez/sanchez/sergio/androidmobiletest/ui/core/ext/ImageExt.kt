@@ -26,6 +26,7 @@ fun ImageView.loadFromCacheIfExists(resourcePath: String) {
                     .build()
             )
         )
+        .placeholder(R.drawable.marvel_icon)
         .apply(RequestOptions.skipMemoryCacheOf(false))
         .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.RESOURCE))
         .error(R.drawable.ic_image_no_available)

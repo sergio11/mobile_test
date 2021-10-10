@@ -23,6 +23,6 @@ interface ApplicationComponent {
     //Exposed to sub-graphs.
     fun context(): Context
 
-    fun mainActivityComponent(activityModule: ActivityModule): HomeActivityComponent
+    fun homeActivityComponent(activityModule: ActivityModule): HomeActivityComponent
     fun splashActivityComponent(activityModule: ActivityModule): SplashActivityComponent
 }

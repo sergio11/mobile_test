@@ -20,6 +20,9 @@ object DaggerComponentFactory {
     private var appComponent: ApplicationComponent? = null
     private var homeActivityComponent: HomeActivityComponent? = null
     private var splashActivityComponent: SplashActivityComponent? = null
+    private var charactersFragmentComponent: CharacterListFragmentComponent? = null
+    private var characterDetailFragmentComponent: CharacterDetailFragmentComponent? = null
+    private var splashFragmentComponent: SplashFragmentComponent? = null
 
     fun getAppComponent(app: AndroidMobileTestApp): ApplicationComponent =
         appComponent ?: DaggerApplicationComponent.builder()
@@ -28,11 +31,17 @@ object DaggerComponentFactory {
                 appComponent = it
             }
 
-    fun getMainActivityComponent(activity: AppCompatActivity): HomeActivityComponent =
+    fun getHomeActivityComponent(activity: AppCompatActivity): HomeActivityComponent =
         homeActivityComponent ?: getAppComponent(activity.application as AndroidMobileTestApp)
-            .mainActivityComponent(ActivityModule(activity)).also {
+            .homeActivityComponent(ActivityModule(activity)).also {
                 homeActivityComponent = it
             }
+
+    fun removeMainActivityComponent() {
+        homeActivityComponent = null
+        charactersFragmentComponent = null
+        characterDetailFragmentComponent = null
+    }
 
     fun getSplashActivityComponent(activity: AppCompatActivity): SplashActivityComponent =
         splashActivityComponent ?: getAppComponent(activity.application as AndroidMobileTestApp)
@@ -40,12 +49,35 @@ object DaggerComponentFactory {
                 splashActivityComponent = it
             }
 
+    fun removeSplashActivityComponent() {
+        splashActivityComponent = null
+        splashFragmentComponent = null
+    }
+
     fun getCharactersFragmentComponent(activity: AppCompatActivity): CharacterListFragmentComponent =
-        getMainActivityComponent(activity).charactersFragmentComponent()
+        charactersFragmentComponent ?: getHomeActivityComponent(activity).charactersFragmentComponent().also {
+            charactersFragmentComponent = it
+        }
+
+    fun removeCharactersFragmentComponent() {
+        charactersFragmentComponent = null
+    }
 
     fun getCharacterDetailFragmentComponent(activity: AppCompatActivity): CharacterDetailFragmentComponent =
-        getMainActivityComponent(activity).characterDetailFragmentComponent()
+        characterDetailFragmentComponent ?: getHomeActivityComponent(activity).characterDetailFragmentComponent().also {
+            characterDetailFragmentComponent = it
+        }
+
+    fun removeCharacterDetailFragmentComponent() {
+        characterDetailFragmentComponent = null
+    }
 
     fun getSplashFragmentComponent(activity: AppCompatActivity): SplashFragmentComponent =
-        getSplashActivityComponent(activity).splashFragmentComponent()
+        splashFragmentComponent ?: getSplashActivityComponent(activity).splashFragmentComponent().also {
+            splashFragmentComponent = it
+        }
+
+    fun removeSplashFragmentComponent() {
+        splashFragmentComponent = null
+    }
 }

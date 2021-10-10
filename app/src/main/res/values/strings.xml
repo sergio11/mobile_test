@@ -20,6 +20,7 @@
     <string name="character_events_value" formatted="false">Available in %d events</string>
     <string name="loading_characters_message">Loading characters, please wait ...</string>
     <string name="error_occurred_message">An error occurred while retrieving characters</string>
+    <string name="no_data_found_message">No Data Found</string>
     <string name="response_from_cache">New data can not be got, you are viewing cached data</string>
     <string name="character_item_comics" formatted="false">%d comics</string>
     <string name="character_item_series" formatted="false">%d series</string>

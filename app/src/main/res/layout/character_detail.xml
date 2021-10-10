@@ -63,12 +63,14 @@
             </LinearLayout>
 
 
-            <androidx.appcompat.widget.Toolbar
+            <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@android:color/transparent"
                 app:layout_collapseMode="pin"
+                app:navigationIconTint="@color/colorAppBackground"
+                app:navigationIcon="?attr/homeAsUpIndicator"
                 app:title="">
 
                 <LinearLayout
@@ -87,7 +89,7 @@
                         />
 
                 </LinearLayout>
-            </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.MaterialToolbar>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 

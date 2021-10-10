@@ -6,15 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.viewbinding.ViewBinding
 import javax.inject.Inject
 
 /**
  * Support Fragment
  */
-abstract class SupportFragment<VM : ViewModel>(private val mViewModelClass: Class<VM>): Fragment() {
+abstract class SupportFragment<VM : ViewModel, VB: ViewBinding>(private val mViewModelClass: Class<VM>): Fragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -22,35 +24,58 @@ abstract class SupportFragment<VM : ViewModel>(private val mViewModelClass: Clas
     @Inject
     lateinit var parentActivity: AppCompatActivity
 
+    // View Model
     lateinit var viewModel: VM
+
+    // Binding
+    lateinit var binding: VB
+
 
     /**
      * on Create
      */
     override fun onCreate(savedInstanceState: Bundle?) {
-        onInject()
+        onAttachComponent()
         super.onCreate(savedInstanceState)
         viewModel = initViewModel()
-        onObserverLiveData(viewModel)
+        onInitObservers()
     }
 
     /**
      * On Create View
      */
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return inflater.inflate(layoutId(), container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View = onCreateViewBinding(inflater, container)
+        .also { binding = it }.root
+
+    override fun onDestroy() {
+        onDetachComponent()
+        super.onDestroy()
     }
 
     /**
-     * Layout Id
+     * If you want to inject Dependency Injection
+     * on your activity, you can override this.
      */
-    @LayoutRes
-    abstract fun layoutId(): Int
+    abstract fun onAttachComponent()
 
     /**
-     * On Inject
+     * Using this method for remove component
      */
-    abstract fun onInject()
+    abstract fun onDetachComponent()
+
+    /**
+     * On Init Observers
+     */
+    abstract fun onInitObservers()
+
+    /**
+     * on Create View Binding
+     */
+    abstract fun onCreateViewBinding(inflater: LayoutInflater, container: ViewGroup?): VB
 
     /**
      * Private Methods
@@ -60,11 +85,5 @@ abstract class SupportFragment<VM : ViewModel>(private val mViewModelClass: Clas
      * Get View Model
      */
     private fun initViewModel(): VM = ViewModelProvider(this, viewModelFactory).get(mViewModelClass)
-
-    /**
-     * On Observer Live Data
-     * @param viewModel
-     */
-    protected open fun onObserverLiveData(viewModel: VM){}
 
 }
