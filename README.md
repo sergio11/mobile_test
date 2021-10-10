@@ -16,6 +16,7 @@
 
 ## Screenshots
 
+<img width="250px" align="left" src="./screenshots/app_gif.gif" />
 
 ### Character List
 <img width="250px" align="left" src="./screenshots/image_1.png" />
