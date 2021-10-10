@@ -3,13 +3,13 @@
 
     <item>
         <shape android:shape="rectangle" android:padding="@dimen/common_padding">
-            <solid android:color="@color/colorPrimaryDark" />
+            <solid android:color="@color/colorAppBackground" />
         </shape>
     </item>
 
     <item
-        android:drawable="@drawable/marvel_icon"
+        android:drawable="@drawable/marvel_splash_icon"
         android:gravity="center"
-        android:width="96dp"
-        android:height="96dp"/>
+        android:width="268dp"
+        android:height="107dp"/>
 </layer-list>
