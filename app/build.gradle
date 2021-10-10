@@ -21,8 +21,8 @@ android {
          */
 
         buildConfigField "String", "BASE_URL", '"https://gateway.marvel.com:443/v1/public/"'
-        buildConfigField "String", "MARVEL_API_KEY", '"your_api_key"'
-        buildConfigField "String", "MARVEL_PRIVATE_API_KEY", '"your_api_key"'
+        buildConfigField "String", "MARVEL_API_KEY", '"your_api_key_here"'
+        buildConfigField "String", "MARVEL_PRIVATE_API_KEY", '"your_api_key_here"'
 
     }
 
